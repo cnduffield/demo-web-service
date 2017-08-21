@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <title>Demonstration Loan System</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+	<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png"/>
+	<link rel="shortcut icon" href="static/img/favicon.ico"/>
+
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" media="screen"/>
+</head>
+
+<body>
+	<header th:include="header::header"></header>
+
+	<div class="content">
+		<div class="container">
+	    </div>
+	</div>
+	<footer th:include="footer::footer"></footer>
+</body>
+</html>

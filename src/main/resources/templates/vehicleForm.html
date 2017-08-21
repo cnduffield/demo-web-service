@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="head::head"></head>
+<body>
+	<header th:include="header::header"></header>
+	<div class="content">
+		<div class="container">
+			<div th:if="${vehicle}">
+			   <div class="title"><h1>Edit Vehicle</h1></div>
+			</div>
+			<div th:unless="${vehicle}">
+			   <div class="title"><h1>New Vehicle</h1></div>
+			</div>
+			<form action="/vehicle/new" method="post" th:object="${vehicle}" th:method="POST">
+				<input type="hidden" th:field="*{id}" />
+				<input type="hidden" th:field="*{ownerId}" />
+				<ul class="form-style-1">
+					<li><label>Make<span class="required">*</span></label>
+						<input type="text" name="make" class="field-divided" placeholder="Make" th:field="*{make}" />
+					</li>
+					<li><label>Model<span class="required">*</span></label>
+						<input type="text" name="model" class="field-divided" placeholder="Model" th:field="*{model}" />
+					</li>
+					<li><label>Year<span class="required">*</span></label>
+						<input type="text" name="year" class="field-divided" placeholder="Year" th:field="*{year}" />
+					</li>
+					<li><label>VIN<span class="required">*</span></label>
+						<input type="text" name="vin" class="field-divided" placeholder="VIN" th:field="*{vin}" />
+					</li>
+				</ul>
+			    <div class="eqi-container form-style-1">
+					<div th:if="${vehicle.id}">
+					   <input type="submit" value="Edit" class="button"/>
+					</div>
+					<div th:unless="${vehicle.id}">
+					   <input type="submit" value="Add" class="button"/>
+				    </div>
+					<div th:if="${vehicle.id}">
+						<a th:href="@{'/vehicle/delete/' + ${vehicle.id}}" class="button">Delete</a>
+				    </div>
+			    </div>
+			</form>
+		</div>
+	</div>
+	<footer th:include="footer::footer"></footer>
+</body>
+</html>

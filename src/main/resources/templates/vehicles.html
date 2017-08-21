@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="head::head"></head>
+<body>
+	<header th:include="header::header"></header>
+	<div class="content">
+		<div class="container">
+			<div class="title"><h1>Vehicles</h1></div>
+			<div class="datagrid">
+				<table>
+					<thead>
+						<tr>
+							<!-- <th>Identifier</th> -->
+							<th>Name</th>
+							<th>Email</th>
+							<th>Soc Sec #</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="vehicle : ${vehicles}">
+							<td th:text="${vehicle.make}">Onions</td>
+							<td th:text="${vehicle.model}">Onions</td>
+							<td th:text="${vehicle.year}">2.41</td>
+							<td th:text="${vehicle.vin}">yes</td>
+							<td><a th:href="@{'/vehicle/edit/' + ${vehicle.id}}" class="button">Edit</a>
+								<a th:href="@{'/vehicle/delete/' + ${vehicle.id}}" class="button">Delete</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	    <div>
+		    <a href="/vehicle/new" class="button">New Vehicle</a>
+	    </div>
+	</div>
+	<footer th:include="footer::footer"></footer>
+</body>
+</html>

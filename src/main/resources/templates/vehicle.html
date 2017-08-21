@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="head::head"></head>
+<body>
+	<header th:include="header::header"></header>
+	<div class="content">
+		<div class="container">
+			<div class="title"><h1>Vehicle</h1></div>
+			<div class="detailgrid">
+				<table>
+					<tbody>
+						<tr>
+							<td><b>Make and Model</b></td>
+							<td th:text="${vehicle.make + ' ' + vehicle.model}">Onions</td>
+						</tr>
+						<tr>
+							<td><b>Year</b></td>
+							<td th:text="${vehicle.year}">2.41</td>
+						</tr>
+						<tr>
+							<td><b>Vehicle Identification Number</b></td>
+							<td th:text="${vehicle.vin}">yes</td>
+						</tr>
+						<tr th:if="${vehicle.owner}">
+							<td><b>Owner</b></td>
+							<td th:text="${vehicle.owner.firstName + ' ' vehicle.owner.lastName}">yes</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<a th:href="@{'/vehicle/edit/' + ${vehicle.id}}" class="button">Edit</a>
+		</div>
+	</div>
+	<footer th:include="footer::footer"></footer>
+</body>
+</html>

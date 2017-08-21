@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="head::head"></head>
+<body>
+	<header th:include="header::header"></header>
+	<div class="content">
+		<div class="container">
+			<div class="title"><h1>Person</h1></div>
+			<div class="detailgrid">
+				<table>
+					<tbody>
+						<tr>
+							<td><b>Full Name</b></td>
+							<td th:text="${person.firstName + ' ' + person.LastName}">Onions</td>
+						</tr>
+						<tr>
+							<td><b>Email</b></td>
+							<td th:text="${person.email}">2.41</td>
+						</tr>
+						<tr>
+							<td><b>Social Security Number</b></td>
+							<td th:text="${person.governmentId}">yes</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<a th:href="@{'/person/edit/' + ${person.id}}" class="button">Edit</a>
+		</div>
+	</div>
+	<footer th:include="footer::footer"></footer>
+</body>
+</html>

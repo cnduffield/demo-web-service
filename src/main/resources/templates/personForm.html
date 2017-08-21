@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="head::head"></head>
+<body>
+	<header th:include="header::header"></header>
+	<div class="content">
+		<div class="container">
+			<div th:if="${person}">
+			   <div class="title"><h1>Edit Person</h1></div>
+			</div>
+			<div th:unless="${person}">
+			   <div class="title"><h1>New Person</h1></div>
+			</div>
+			<form action="/person/new" method="post" th:object="${person}" th:method="POST">
+				<input type="hidden" th:field="*{id}" />
+				<ul class="form-style-1">
+					<li><label>Full Name <span class="required">*</span></label>
+						<input type="text" name="firstName" class="field-divided"
+							placeholder="First" th:field="*{firstName}" />&nbsp;
+						<input type="text" name="lastName" class="field-divided" placeholder="Last" th:field="*{lastName}" />
+					</li>
+					<li><label>Email <span class="required">*</span></label>
+						<input type="email" name="email" class="field-long" placeholder="you@domain.com" th:field="*{email}" /></li>
+					<li><label>Social Security Number <span class="required">*</span></label>
+						<input type="text" name="governmentId" class="field-long" placeholder="999-99-9999" th:field="*{governmentId}" /></li>
+				</ul>
+			    <div class="eqi-container form-style-1">
+					<div th:if="${person.id}">
+					   <input type="submit" value="Edit"  class="button"/>
+					</div>
+					<div th:unless="${person.id}">
+					   <input type="submit" value="Add" class="button"/>
+				    </div>
+					<div th:if="${person.id}">
+						<a th:href="@{'/person/delete/' + ${person.id}}" class="button">Delete</a>
+				    </div>
+			    </div>
+			</form>
+		</div>
+	</div>
+	<footer th:include="footer::footer"></footer>
+</body>
+</html>

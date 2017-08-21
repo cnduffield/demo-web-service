@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<header th:fragment="header">
+		<nav class="navbar">
+			<div class="container">
+				<div class="main title__width">
+					<p class="cover__title">Demonstration Loan System</p>
+				</div>
+			</div>
+		</nav>
+		<div class="navbar__width">
+			<ul class="navbar--primary">
+				<li class="navbar__item--primary">
+					<a class="navbar__item__link navbar__item__link--primary"
+						href="/people">People</a></li>
+				<li class="navbar__item--primary">
+					<a class="navbar__item__link navbar__item__link--primary"
+						href="/vehicles">Vehicles</a></li>
+				<li class="navbar__item--primary">
+					<a class="navbar__item__link navbar__item__link--primary"
+						href="/loans">Loans</a>
+				</li>
+			</ul>
+		</div>
+	</header>
+</body>
+</html>
