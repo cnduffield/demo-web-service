@@ -66,12 +66,12 @@
 			<groupId>org.threeten</groupId>
 			<artifactId>threeten-extra</artifactId>
 			<version>1.1</version>
-		</dependency>
+		</dependency><!-- 
         <dependency>
             <groupId>org.demo</groupId>
             <artifactId>demo-model-common</artifactId>
             <version>0.1.0</version>
-        </dependency>
+        </dependency> -->
 	</dependencies>
 
 	<build>
