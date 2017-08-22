@@ -1,8 +1,11 @@
 package org.demo.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
 import org.demo.model.Vehicle;
-import org.demo.service.DemoService;
+import org.demo.service.VehiclesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,13 +19,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class VehicleController {
 	@Autowired
-	DemoService svc;
+	VehiclesService svc;
 	@GetMapping("/vehicles")
 	public String retrieveVehicles(@RequestParam(value = "make", required = false) String make,
 			@RequestParam(value = "model", required = false) String vehicleModel, Model model) {
-		if (make != null || vehicleModel != null)
-			model.addAttribute("vehicles", svc.retrieveVehiclesByMakeAndModel(make, vehicleModel));
-		model.addAttribute("vehicles", svc.retrieveAllVehicles());
+		List<Vehicle> vehicles = new ArrayList<>();
+		if (make != null || vehicleModel != null) vehicles = svc.retrieveVehiclesByMakeAndModel(make, vehicleModel);
+		else vehicles = svc.retrieveAllVehicles();
+		model.addAttribute("vehicles", vehicles);
 		return "vehicles";
 	}
 	@GetMapping("/vehicle/{id}")
@@ -35,9 +39,11 @@ public class VehicleController {
 		model.addAttribute("vehicle", svc.retrieveVehicleByVin(vin));
 		return "vehicle";
 	}
-	@GetMapping("/vehicle/new")
-	public String newVehicleForm(Model model) {
-		model.addAttribute("vehicle", new Vehicle());
+	@GetMapping("/vehicle/new/{ownerId}")
+	public String newVehicleForm(@PathVariable(value = "ownerId") String ownerId, Model model) {
+		Vehicle vehicle = new Vehicle();
+		vehicle.setOwnerId(ownerId);
+		model.addAttribute("vehicle", vehicle);
 		return "vehicleForm";
 	}
 	@GetMapping("/vehicle/edit/{id}")

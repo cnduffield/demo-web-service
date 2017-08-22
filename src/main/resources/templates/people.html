@@ -5,34 +5,30 @@
 	<header th:include="header::header"></header>
 	<div class="content">
 		<div class="container">
-			<div class="title"><h1>People</h1></div>
+			<div class="title not-eqi-container"><h1>People</h1><a href="/person/new" class="button-reverse">New Person</a></div>
 			<div class="datagrid">
 				<table>
 					<thead>
 						<tr>
-							<!-- <th>Identifier</th> -->
 							<th>Name</th>
 							<th>Email</th>
 							<th>Soc Sec #</th>
-							<th>Actions</th>
+							<th class="min">Actions</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="person : ${people}">
-							<!-- <td th:text="${person.id}">Onions</td> -->
 							<td th:text="${person.firstName + ' ' + person.LastName}">Onions</td>
 							<td th:text="${person.email}">2.41</td>
 							<td th:text="${person.governmentId}">yes</td>
-							<td><a th:href="@{'/person/edit/' + ${person.id}}" class="button">Edit</a>
-								<a th:href="@{'/person/delete/' + ${person.id}}" class="button">Delete</a></td>
+							<td class="min"><a th:href="@{'/person/edit/' + ${person.id}}" class="button">Edit</a>
+								<a th:href="@{'/person/delete/' + ${person.id}}" class="button">Delete</a>
+								<a th:href="@{'/vehicle/new/' + ${person.id}}" class="button">Add Vehicle</a></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
-	    <div>
-		    <a href="/person/new" class="button">New Person</a>
-	    </div>
 	</div>
 	<footer th:include="footer::footer"></footer>
 </body>

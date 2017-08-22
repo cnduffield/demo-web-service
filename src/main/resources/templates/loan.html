@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="head::head"></head>
+<body>
+	<header th:include="header::header"></header>
+	<div class="content">
+		<div class="container">
+			<div class="title"><h1>Loan</h1></div>
+			<div class="detailgrid">
+				<table>
+					<tbody>
+						<tr>
+							<td><b>Loan Number</b></td>
+							<td th:text="${loan.id}">Onions</td>
+						</tr>
+						<tr>
+							<td><b>Owner</b></td>
+							<td th:text="${loan.owner.firstName + ' ' + loan.owner.LastName}">Onions</td>
+						</tr>
+						<tr>
+							<td><b>Vehicle</b></td>
+							<td th:text="${loan.vehicle.year + ' ' + loan.vehicle.make + ' ' + loan.vehicle.model}">Onions</td>
+						</tr>
+						<tr>
+							<td><b>Original Amount</b></td>
+							<td th:text="${loan.originalAmount}">2.41</td>
+						</tr>
+						<tr>
+							<td><b>Social Security Number</b></td>
+							<td th:text="${loan.currentAmount}">yes</td>
+						</tr>
+						<tr>
+							<td><b>Status</b></td>
+							<td th:text="${loan.status.display}">yes</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<footer th:include="footer::footer"></footer>
+</body>
+</html>

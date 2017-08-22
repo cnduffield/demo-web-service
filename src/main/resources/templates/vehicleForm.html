@@ -15,22 +15,19 @@
 				<input type="hidden" th:field="*{id}" />
 				<input type="hidden" th:field="*{ownerId}" />
 				<ul class="form-style-1">
-					<li><label>Make<span class="required">*</span></label>
-						<input type="text" name="make" class="field-divided" placeholder="Make" th:field="*{make}" />
-					</li>
-					<li><label>Model<span class="required">*</span></label>
+					<li><label>Make and Model <span class="required">*</span></label>
+						<input type="text" name="make" class="field-divided"
+							placeholder="Make" th:field="*{make}" />&nbsp;
 						<input type="text" name="model" class="field-divided" placeholder="Model" th:field="*{model}" />
 					</li>
-					<li><label>Year<span class="required">*</span></label>
-						<input type="text" name="year" class="field-divided" placeholder="Year" th:field="*{year}" />
-					</li>
-					<li><label>VIN<span class="required">*</span></label>
-						<input type="text" name="vin" class="field-divided" placeholder="VIN" th:field="*{vin}" />
-					</li>
+					<li><label>Vehicle Identification Number <span class="required">*</span></label>
+						<input type="text" name="vin" class="field-long" placeholder="VIN" th:field="*{vin}" /></li>
+					<li><label>Year <span class="required">*</span></label>
+						<input type="text" name="year" class="field-long" placeholder="1972" th:field="*{year}" /></li>
 				</ul>
 			    <div class="eqi-container form-style-1">
 					<div th:if="${vehicle.id}">
-					   <input type="submit" value="Edit" class="button"/>
+					   <input type="submit" value="Edit"  class="button"/>
 					</div>
 					<div th:unless="${vehicle.id}">
 					   <input type="submit" value="Add" class="button"/>

@@ -8,7 +8,7 @@
 		</layout>
 	</appender>
 	
-	<logger name="org.springframework" level="INFO" />
+	<logger name="org.springframework" level="DEBUG" />
 	<logger name="org.thymeleaf" level="WARN" />
 
 	<root level="debug">

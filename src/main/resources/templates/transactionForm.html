@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="head::head"></head>
+<body>
+	<header th:include="header::header"></header>
+	<div class="content">
+		<div class="container">
+		   <div class="title"><h1>Make Payment</h1></div>
+			<form action="/transaction/new" method="post" th:object="${transaction}" th:method="POST">
+				<input type="hidden" th:field="*{type}" />
+				<input type="hidden" th:field="*{loanId}" />
+				<ul class="form-style-1">
+					<li><label>Payment Amount<span class="required">*</span></label>
+						<input type="text" name="amount" class="field-divided" placeholder="0.00" th:field="*{amount}" />
+					</li>
+				</ul>
+			    <div class="eqi-container form-style-1">
+				   <input type="submit" value="Send" class="button"/>
+			    </div>
+			</form>
+		</div>
+	</div>
+	<footer th:include="footer::footer"></footer>
+</body>
+</html>

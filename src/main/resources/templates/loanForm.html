@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="head::head"></head>
+<body>
+	<header th:include="header::header"></header>
+	<div class="content">
+		<div class="container">
+			<div class="title"><h1>New Loan</h1></div>
+			<form action="/loan/new" method="post" th:object="${loan}" th:method="POST">
+				<input type="hidden" th:field="*{ownerId}" />
+				<input type="hidden" th:field="*{vehicleId}" />
+				<ul class="form-style-1">
+					<li><label>Original Amount <span class="required">*</span></label>
+						<input type="text" name="originalAmount" class="field-long"
+							placeholder="0.00" th:field="*{originalAmount}" />
+					</li>
+				</ul>
+			    <div class="eqi-container form-style-1">
+					<input type="submit" value="Add" class="button"/>
+			    </div>
+			</form>
+		</div>
+	</div>
+	<footer th:include="footer::footer"></footer>
+</body>
+</html>

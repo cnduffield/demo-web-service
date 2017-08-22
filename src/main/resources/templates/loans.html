@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="head::head"></head>
+<body>
+	<header th:include="header::header"></header>
+	<div class="content">
+		<div class="container">
+			<div class="title"><h1>Loans</h1></div>
+			<div class="datagrid">
+				<table>
+					<thead>
+						<tr>
+							<th>Loan #</th>
+							<th>Owner</th>
+							<th>Vehicle</th>
+							<th>Original Amount</th>
+							<th>Current Amount</th>
+							<th>Status</th>
+							<th class="min">Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="loan : ${loans}">
+							<td th:text="${loan.id}">2.41</td>
+							<td th:text="${loan.owner.firstName + ' ' + loan.owner.LastName}">Onions</td>
+							<td th:text="${loan.vehicle.make + ' ' + loan.vehicle.model}">2.41</td>
+							<td th:text="${loan.originalAmount}">1.10</td>
+							<td th:text="${loan.currentAmount}">1.10</td>
+							<td th:text="${loan.status.display}">dead</td>
+							<td class="min"><a th:href="@{'/loan/edit/' + ${loan.id}}" class="button">Edit</a>
+								<a th:href="@{'/loan/delete/' + ${loan.id}}" class="button">Delete</a>
+								<a th:href="@{'/transaction/new/' + ${loan.id}}" class="button">Make Payment</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<footer th:include="footer::footer"></footer>
+</body>
+</html>

@@ -10,21 +10,25 @@
 				<table>
 					<thead>
 						<tr>
-							<!-- <th>Identifier</th> -->
-							<th>Name</th>
-							<th>Email</th>
-							<th>Soc Sec #</th>
-							<th>Actions</th>
+							<th>Owner</th>
+							<th>VIN</th>
+							<th>Make</th>
+							<th>Model</th>
+							<th>Year</th>
+							<th class="min">Actions</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="vehicle : ${vehicles}">
+							<td th:text="${vehicle.owner.firstName + ' ' + vehicle.owner.lastName}">Onions</td>
+							<td th:text="${vehicle.vin}">yes</td>
 							<td th:text="${vehicle.make}">Onions</td>
 							<td th:text="${vehicle.model}">Onions</td>
 							<td th:text="${vehicle.year}">2.41</td>
-							<td th:text="${vehicle.vin}">yes</td>
-							<td><a th:href="@{'/vehicle/edit/' + ${vehicle.id}}" class="button">Edit</a>
-								<a th:href="@{'/vehicle/delete/' + ${vehicle.id}}" class="button">Delete</a></td>
+							<td class="min">
+								<a th:href="@{'/vehicle/edit/' + ${vehicle.id}}" class="button">Edit</a>
+								<a th:href="@{'/vehicle/delete/' + ${vehicle.id}}" class="button">Delete</a>
+								<a th:href="@{'/loan/new/' + ${vehicle.owner.id} + '/' + ${vehicle.id}}" class="button">Get Loan</a></td>
 						</tr>
 					</tbody>
 				</table>

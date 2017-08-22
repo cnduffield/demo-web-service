@@ -1726,7 +1726,51 @@ a.button:hover{
     -webkit-box-shadow:none;
 }
 
-  .eqi-container {
+a.button-reverse {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+
+    background: #ffffff;
+    padding: 8px 15px 8px 15px;
+    border:1px solid #000000;
+	color: #000000;
+	font-size: 12px;
+	margin: 0 15px 10px 10px
+}
+
+a.button-reverse:hover{
+    background: #000000;
+	color: #ffffff;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+}
+
+.eqi-container {
   display: flex;
   justify-content: space-between;
+}
+
+.not-eqi-container {
+  display: flex;
+}
+
+td {
+    width: auto;
+}
+
+td.min {
+    width: 1%;
+    white-space: nowrap;
+}
+th {
+    width: auto;
+}
+
+th.min {
+    width: 1%;
+    white-space: nowrap;
 }

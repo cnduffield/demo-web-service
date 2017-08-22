@@ -6,9 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
-
-    @GetMapping("/")
-    public String retrieveNotes(Model model) {
+	@GetMapping("/")
+	public String retrieveNotes(Model model) {
 		return "home";
-    }
+	}
+	@GetMapping("/hello-world")
+	public String helloWorld(Model model) {
+		return "hello-world";
+	}
 }
