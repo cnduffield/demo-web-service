@@ -23,7 +23,7 @@ public class Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
-	@Bean
+	/*@Bean
 	public Java8TimeDialect java8TimeDialect() {
 		return new Java8TimeDialect();
 	}
@@ -36,5 +36,5 @@ public class Application {
 		converter.setSupportedMediaTypes(Arrays.asList(MediaTypes.HAL_JSON));
 		converter.setObjectMapper(mapper);
 		return new RestTemplate(Collections.<HttpMessageConverter<?>>singletonList(converter));
-	}
+	}*/
 }
